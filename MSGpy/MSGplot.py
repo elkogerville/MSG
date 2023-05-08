@@ -93,6 +93,7 @@ def MSG_plot(gal_posA, gal_posB, par_posA, particle_Na, step, par_posB = None, p
         if tails is not None:
             ax.scatter3D(gal_posA[:step,0], gal_posA[:step,1], gal_posA[:step,2], s = 15, color = 'darkslateblue', 
                          alpha = .05) # bulge 1
+        plt.show()
         
     else:
         print('ploting....  \n [^._.^]')
@@ -128,3 +129,4 @@ def MSG_plot(gal_posA, gal_posB, par_posA, particle_Na, step, par_posB = None, p
         if tails is not None:
             ax.scatter3D(gal_posA[:step,0], gal_posA[:step,1], gal_posA[:step,2], s = 15, color = 'darkslateblue', 
                          alpha = .05) # bulge 1
+        plt.show()
