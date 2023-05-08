@@ -2,6 +2,10 @@
 <br> This python code simulates the motion of massless test particles (galactic disk) through a gravitational potential field created by 2 galactic bulges. This restricted N-Body simulation is modeled after the Toomre and Toomre 1972 simulations and allows for 3D visualization of galaxy mergers.
 <br>
 <br>
+## how code works:
+the program performs a restricted N-Body calculation onto test particles in a potential field. two massive bulge particles are sent into each other and massless test particles are initialized to orbit bulge particles. the massless test particles follow circular keplerian orbits. the simulation calculates the gravitational acceleration from the two bulges onto each test particle in 3 dimensions using the equation 
+<br> 
+$g_{i} =-Gm_{i} \sum_{k=1}^n a_k b_k \sum_{n=i}^{N} *\frac{x_{k}-x_{i}}{[|x_{k}-x_{i}|^{2}+\epsilon^{2}]^{3/2}}$
 ## running the code:
 ```python
 ### IMPORT STATEMENTS
