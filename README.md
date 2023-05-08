@@ -5,9 +5,9 @@
 ## running the code:
 ```python
 ### IMPORT STATEMENTS
-from MSGpy import MSGgalaxy
-from MSGpy import MSGdisk
-from MSGpy import MSGplot
+from MSGpy import MSG_galaxy
+from MSGpy import MSG_disk
+from MSGpy import MSG_plot
 ### INITIAL CONDITIONS 
 pos = np.array([[-12.5, 13.0, 0.0], [0.0, 0.0, 0.0]]) # companion and primary galaxy positions
 vel = np.array([[1.5, -1.0, 0.0], [0.0, 0.0, 0.0]]) # respective velocities 
