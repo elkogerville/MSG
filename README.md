@@ -79,6 +79,64 @@ animation = camera.animate() # compile snapshots
 plt.close() #Stop the empty plot from displaying
 HTML(animation.to_html5_video()) # display animation
 ```
+
+## matplotlib animations
+```python
+### MATPLOTLIB ANIMATION 
+import matplotlib.pyplot as plt
+from mpl_toolkits import mplot3d
+import matplotlib.animation as animation
+
+# default camera viewing angles
+elev = 45 # z viewing angle (0 = edge on; 90 = Bird's eye view)
+azim = 90 # xy plane rotation angle
+
+
+# make sure following values are integers
+print('please input animation start and stop times; values must be integers within timestep range: ',' \n ex: \n start: 800 \n stop: 850')
+start = int(input('animation start time: '))
+stop = int(input('animation stop time: '))
+
+# define figure
+fig = plt.figure(figsize=(10, 10), dpi = 100)
+ax = plt.axes(projection='3d')
+
+# formatting
+plt.rcParams['font.family'] = 'sans-serif' # set font
+# set border color to white
+ax.xaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
+ax.yaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
+ax.zaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
+
+# set view angles
+ax.view_init(elev = elev, azim = azim)
+# set lables
+ax.set_xlabel('\u03A7')
+ax.set_ylabel('\u03A5')
+ax.set_zlabel('Z')
+
+# set up animation variables
+b1, b2, p1, p2 = [], [], [], []
+for i in range(start, stop):
+    # correct slicing index
+    end1 = N*i + N
+    end2 = M*i + M
+    # plot and append
+    plota = ax.scatter3D(a[i,0], a[i,1], a[i,2], s = 100, color = 'darkslateblue') # bulges
+    b1.append([plota])
+    plotb = ax.scatter3D(b[i,0], b[i,1], b[i,2], s = 200, color = 'black') # bulge 1 
+    b2.append([plotb])
+    plotc = ax.scatter3D(c[N*i:end1,0], c[N*i:end1,1], c[N*i:end1,2], s = 15, color = 'darkorchid') # bulge 1 
+    p1.append([plotc])
+    plotd = ax.scatter3D(d[M*i:end2,0], d[M*i:end2,1], d[M*i:end2,2], s = 15, color = 'slateblue') # bulge 1 
+    p2.append([plotd])
+        
+ani1 = animation.ArtistAnimation(fig, b1, interval=5, blit=False)
+ani2 = animation.ArtistAnimation(fig, b2, interval=5, blit=False)
+ani3 = animation.ArtistAnimation(fig, p1, interval=5, blit=False)
+ani4 = animation.ArtistAnimation(fig, p2, interval=5, blit=False)
+plt.show()
+```
 ## Requirements
 <br>numpy, matplotlib, random
 ## Acknowledgements
