@@ -20,10 +20,28 @@ com_p, com_v, M = MSG_disk(number_of_rings = 3, mass = 1, rotation_dir = -1, den
                      velocity = [1.5, -1.0, 0.0])
 ### RUN SIMULATION for 1000 timesteps
 a, b, c, d = MSG_galaxy(gal_pos = pos, gal_vel = vel, mass = mas, particle_pos = pos_p, particle_vel = vel_p, 
-                        dt = .01, timesteps = 1000, soft_param = .1, disk2 = com_p, diskvel = com_v)
+                        dt = .01, timesteps = 1000, soft_param = .1, disk2 = com_p, diskvel = com_v) # CHANGE TIMESTEPS HERE
 ### PLOT LAST TIMESTEP
 MSG_plot(gal_posA = a, gal_posB = b, par_posA = c, particle_Na = 597, step = 999,  par_posB = d, particle_Nb = 324, tails = True, elev = 45, azim = 90)
 ```
+### initial conditions to try
+Z plane merger; recommended timesteps: 2000+
+```python
+pos = np.array([[4.0, 20.0, 10.0], [0.0, 0.0, 0.0]]) # bulge positions
+vel = np.array([[0.0, -1.0, -0.7], [0.0, 0.0, 0.0]]) # bulge velocities
+mas = np.array([[1.25], [4.0]]) # bulge masses
+pos_p, vel_p, N = MSG_disk(7, 4, -1, 3) # primary disk
+com_p, com_v, M = MSG_disk(3, 1.25, -1, 6, [4.0, 20.0, 10.0], [0.0, -1.0, -0.7]) # companion disk
+```
+XY plane merger; recommended timesteps 3000
+```python
+pos = np.array([[-15.0, 10.0, 0.0], [0.0, 0.0, 0.0]]) # bulge positions
+vel = np.array([[1.5, 0.0, 0.0], [0.0, 0.0, 0.0]]) # bulge velocities
+mas = np.array([[1.0], [3.0]]) # bulge masses
+pos_p, vel_p, N = MSG_disk(7, 3, -1, 3) # primary disk
+com_p, com_v, M = MSG_disk(3, 1.0, -1, 6, [-15.0, 10.0, 0.0], [1.5, 0.0, 0.0]) # companion disk
+``` 
+
 ### setting up celluloid animations:
 ```python
 ### PLOT ANIMATION
@@ -66,22 +84,24 @@ ax.set_ylabel('\u03A5')
 ax.set_zlabel('Z')
 
 for i in range(start, stop):
+    # correct sclicing index
     end1 = N*i + N
     end2 = M*i + M
 
-    ax.scatter3D(a[i,0], a[i,1], a[i,2], s = 100, color = 'darkslateblue') # bulges
-    ax.scatter3D(b[i,0], b[i,1], b[i,2], s = 200, color = 'black') # bulge 1 
-    ax.scatter3D(c[N*i:end1,0], c[N*i:end1,1], c[N*i:end1,2], s = 15, color = 'darkorchid') # bulge 1 
-    ax.scatter3D(d[M*i:end2,0], d[M*i:end2,1], d[M*i:end2,2], s = 15, color = 'slateblue') # bulge 1 
-
+    ax.scatter3D(a[i,0], a[i,1], a[i,2], s = 100, color = 'darkslateblue') # bulge 1
+    ax.scatter3D(b[i,0], b[i,1], b[i,2], s = 200, color = 'black') # bulge 2
+    ax.scatter3D(c[N*i:end1,0], c[N*i:end1,1], c[N*i:end1,2], s = 15, color = 'darkorchid') # primary disk
+    ax.scatter3D(d[M*i:end2,0], d[M*i:end2,1], d[M*i:end2,2], s = 15, color = 'slateblue') # companion disk 
+    # save snapshots
     camera.snap()
 
 animation = camera.animate() # compile snapshots
-plt.close() #Stop the empty plot from displaying
+plt.close() # stop the empty plot from displaying
 HTML(animation.to_html5_video()) # display animation
 ```
 
 ## matplotlib animations
+this code works in jupyter notebooks and offers a non celluloid dependent alternative for plotting animations. place this code in a cell after the code found in the "running the code" section
 ```python
 # create interactive plot
 %matplotlib notebook
@@ -142,5 +162,6 @@ plt.show()
 ```
 ## Requirements
 <br>numpy, matplotlib, random
+<br>OPTIONAL: celluloid, IPython.display
 ## Acknowledgements
 <br>Thank you to Professor Marla Geha and Will Cerny for their help. This project would have not been possible without them! =^._.^=
