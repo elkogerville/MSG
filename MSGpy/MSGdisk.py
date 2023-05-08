@@ -8,7 +8,7 @@ def MSG_disk(number_of_rings, mass, rotation_dir, density, origin = ([[0.,0.,0.]
     mass [float]: mass of bulge, used to calculate velocities
     
     rotation_dir [integer]: either 1 or -1 for CCW [1] and CW [-1] disk rotation
-    can be used as a scaling factor for velocities, however can lead to exceeding escape velocity
+    can be used as a scaling factor for velocities [ei. -2], however can lead to exceeding escape velocity
     
     density [float]: scales particle ring density using the equation y = density * (6x + 6)
     default of density = 1 recreates the TOOMRE and TOOMRE simulation particle density
@@ -94,15 +94,17 @@ def MSG_disk(number_of_rings, mass, rotation_dir, density, origin = ([[0.,0.,0.]
     PAR_PER_RING = particles_per_ring(number_of_rings, density)
     Np = int(sum(PAR_PER_RING)) # total number of particles
 
-    rand = random.randint(0, 3) # generate 0, 1, 2, or 3 randomly
+    rand = random.randint(0, 4) # generate integer between 0 and 5 randomly
     if rand == 0:
         print('total number of particles: ', Np , '\n ﾐᐠዋ ﻌ ዋᐟﾐ') # tiger
     if rand == 1:
-        print('total number of particles: ', Np , '\n (≗ᆽ≗) ᨐ') # tiny cat
+        print('total number of particles: ', Np , '\n /ᐠ｡ꞈ｡ᐟ\ ᨐ') # tiny cat
     if rand == 2:
         print('total number of particles: ', Np , '\n /ᐠ ̥ ̮ ̥ᐟ\ฅ  ฅ/ᐠ‧̫‧ᐟ\ฅ  ฅ/ᐠ. ̫.ᐟ\ฅ') # 3 kitties
     if rand == 3:
         print('total number of particles: ', Np , '\n =^._.^=') # awesome cat
+    if rand == 4:
+        print('total number of particles: ', Np , '\n (๑ↀᆺↀ๑)') # cool cat
 
     # generate radii and velocities for each ring
     radii, velocities = init(number_of_rings, mass)
