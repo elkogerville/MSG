@@ -50,6 +50,7 @@ com_p, com_v, M = MSG_disk(3, 1.0, -1, 6, [-15.0, 10.0, 0.0], [1.5, 0.0, 0.0]) #
 ``` 
 
 ### setting up celluloid animations:
+place this code after the "running the code" section. this requires $pip install celluloid 
 ```python
 ### PLOT ANIMATION
 try:
