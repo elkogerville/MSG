@@ -83,6 +83,8 @@ HTML(animation.to_html5_video()) # display animation
 
 ## matplotlib animations
 ```python
+# create interactive plot
+%matplotlib notebook
 ### MATPLOTLIB ANIMATION 
 import matplotlib.pyplot as plt
 from mpl_toolkits import mplot3d
