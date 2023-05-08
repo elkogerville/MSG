@@ -23,5 +23,7 @@ a, b, c, d = MSG_galaxy(gal_pos = pos, gal_vel = vel, mass = mas, particle_pos =
 ### PLOT LAST TIMESTEP
 MSG_plot(gal_posA = a, gal_posB = b, par_posA = c, particle_Na = 597, step = 999,  par_posB = d, particle_Nb = 324, tails = True, elev = 45, azim = 90)
 ```
+## Requirements
+<br>numpy, matplotlib, random
 ## Acknowledgements
 <br>Thank you to Professor Marla Geha and Will Cerny for their help. This project would have not been possible without them! =^._.^=
