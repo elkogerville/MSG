@@ -31,6 +31,10 @@ a, b, c, d = MSG_galaxy(gal_pos = pos, gal_vel = vel, mass = mas, particle_pos =
 ### PLOT LAST TIMESTEP
 MSG_plot(gal_posA = a, gal_posB = b, par_posA = c, particle_Na = 597, step = 999,  par_posB = d, particle_Nb = 324, tails = True, elev = 45, azim = 90)
 ```
+include this line at the top of the cell for interactive jupyter notebook plots
+```python
+%matplotlib notebook
+```
 ### initial conditions to try
 Z plane merger; recommended timesteps: 2000+
 ```python
@@ -40,7 +44,7 @@ mas = np.array([[1.25], [4.0]]) # bulge masses
 pos_p, vel_p, N = MSG_disk(7, 4, -1, 3) # primary disk
 com_p, com_v, M = MSG_disk(3, 1.25, -1, 6, [4.0, 20.0, 10.0], [0.0, -1.0, -0.7]) # companion disk
 ```
-XY plane merger; recommended timesteps 3000
+XY plane merger; recommended timesteps: 3000
 ```python
 pos = np.array([[-15.0, 10.0, 0.0], [0.0, 0.0, 0.0]]) # bulge positions
 vel = np.array([[1.5, 0.0, 0.0], [0.0, 0.0, 0.0]]) # bulge velocities
