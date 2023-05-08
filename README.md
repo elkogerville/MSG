@@ -5,6 +5,7 @@
 ## running the code:
 ```python
 ### IMPORT STATEMENTS
+import numpy as np
 from MSGpy import MSG_galaxy
 from MSGpy import MSG_disk
 from MSGpy import MSG_plot
