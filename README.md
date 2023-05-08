@@ -5,7 +5,9 @@
 ## how code works:
 the program performs a restricted N-Body calculation onto test particles in a potential field. two massive bulge particles are sent into each other and massless test particles are initialized to orbit bulge particles. the massless test particles follow circular keplerian orbits. the simulation calculates the gravitational acceleration from the two bulges onto each test particle in 3 dimensions using the equation 
 <br> 
-$g_{i} =-Gm_{i} \sum_{k=1}^n a_k b_k \sum_{n=i}^{N} *\frac{x_{k}-x_{i}}{[|x_{k}-x_{i}|^{2}+\epsilon^{2}]^{3/2}}$
+$$g_{i} =-Gm_{k}\sum_{n=i}^{N}\frac{r_{k}-r_{i}}{[|r_{k}-r_{i}|^{2}+\epsilon^{2}]^{3/2}}$$
+where $r_{i}$ represents the x,y,z coordinates of each particle and $r_{k}$ the x,y,z coordinates of each bulge.
+to run the code, first import simulation functions, and initialize bulge positions and velocities manually [see "initial conditions to try" for sample initial conditions]. use MSG_disk to automatically create matching positions and velocities for bulges. the actual simulation calculations are performed by calling MSG_galaxy and specifying the number of timesteps to run. plot a singular timeframe using MSG_plot or animate the timesteps with celluloid or matplotlib animations [sample code provided below]
 ## running the code:
 ```python
 ### IMPORT STATEMENTS
@@ -157,7 +159,7 @@ for i in range(start, stop):
     p1.append([plotc])
     plotd = ax.scatter3D(d[M*i:end2,0], d[M*i:end2,1], d[M*i:end2,2], s = 15, color = 'slateblue') # bulge 1 
     p2.append([plotd])
-        
+# create animations        
 ani1 = animation.ArtistAnimation(fig, b1, interval=5, blit=False)
 ani2 = animation.ArtistAnimation(fig, b2, interval=5, blit=False)
 ani3 = animation.ArtistAnimation(fig, p1, interval=5, blit=False)
