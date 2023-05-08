@@ -33,8 +33,9 @@ def MSG_plot(gal_posA, gal_posB, par_posA, particle_Na, step, par_posB = None, p
     
     azim [float / integer]: sets azimuthal camera pan angle; can be float or integer
     0 = facing yz plane, 90 = facing xz plane
-    
-    OUTPUT [interactive matplotlib 3d plot]: yay!!! simulation visualized <|:^0 drag mouse on plot to pan camera! 
+    -------------------------------------------------------------------------------------------------------------
+    OUTPUT [matplotlib 3d plot]: yay!!! simulation visualized <|:^0 
+    in jupyter notebook add " %matplotlib notebook " at the top of cell to make plot interactive and drag mouse on plot to pan camera! 
     =^._.^= 
     """
     
