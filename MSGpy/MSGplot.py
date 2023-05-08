@@ -57,7 +57,7 @@ def MSG_plot(gal_posA, gal_posB, par_posA, particle_Na, step, par_posB = None, p
     if par_posB is not None:
         if particle_Nb is None:
             print('FATALE ERROR: please ensure both disk2 positions [par_posB] and disk2 paritcle count [particle_Nb] are defined \n /ᐠ_ ꞈ _ᐟ\ <(fix it...)')
-            return
+            raise SystemExit
         print('ploting....  \n[^._.^]')
         # make sure step is integer
         step = int(step)
