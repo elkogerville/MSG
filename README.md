@@ -1,12 +1,13 @@
 # Merging Simulator for Galaxies [MSG]
-<br> This python code simulates the motion of massless test particles (galactic disk) through a gravitational potential field created by 2 galactic bulges. This restricted N-Body simulation is modeled after the Toomre and Toomre 1972 simulations and allows for 3D visualization of galaxy mergers.
+<br> This python code simulates the motion of massless test particles (galactic disk) through a gravitational potential field created by 2 central bulge particles. This restricted N-Body simulation is modeled after the Toomre and Toomre 1972 simulations and allows for 3D visualization of galaxy mergers.
 <br>
 <br>
 ## how code works:
 the program performs a restricted N-Body calculation onto test particles in a potential field. two massive bulge particles are sent into each other and massless test particles are initialized to orbit bulge particles. the massless test particles follow circular keplerian orbits. the simulation calculates the gravitational acceleration from the two bulges onto each test particle in 3 dimensions using the equation 
 <br> 
 $$g_{i} =-Gm_{k}\sum_{n=i}^{N}\frac{r_{k}-r_{i}}{[|r_{k}-r_{i}|^{2}+\epsilon^{2}]^{3/2}}$$
-where $r_{i}$ represents the x,y,z coordinates of each particle and $r_{k}$ the x,y,z coordinates of each bulge.
+where $r_{i}$ represents the x,y,z coordinates of each particle and $r_{k}$ the x,y,z coordinates of each bulge. each timestep new accelerations are calculated for each particle and used to determine the next position.
+<br>
 to run the code, first import simulation functions, and initialize bulge positions and velocities manually [see "initial conditions to try" for sample initial conditions]. use MSG_disk to automatically create matching positions and velocities for bulges. the actual simulation calculations are performed by calling MSG_galaxy and specifying the number of timesteps to run. plot a singular timeframe using MSG_plot or animate the timesteps with celluloid or matplotlib animations [sample code provided below]
 ## running the code:
 ```python
