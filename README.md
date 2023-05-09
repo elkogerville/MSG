@@ -100,7 +100,7 @@ ax.set_xlabel('\u03A7')
 ax.set_ylabel('\u03A5')
 ax.set_zlabel('Z')
 
-for i in range(start, stop):
+for i in range(start, stop, 15): # plot every 15 timesteps
     # correct sclicing index
     end1 = N*i + N
     end2 = M*i + M
