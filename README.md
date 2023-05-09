@@ -73,7 +73,7 @@ except:
 
 # default camera viewing angles
 elev = 45 # z viewing angle (0 = edge on; 90 = Bird's eye view)
-azim = 90 # xy plane rotation angle
+azim = 0 # xy plane rotation angle
 
 
 # make sure following values are integers
@@ -129,7 +129,7 @@ import matplotlib.animation as animation
 
 # default camera viewing angles
 elev = 45 # z viewing angle (0 = edge on; 90 = Bird's eye view)
-azim = 90 # xy plane rotation angle
+azim = 0 # xy plane rotation angle
 
 
 # make sure following values are integers
