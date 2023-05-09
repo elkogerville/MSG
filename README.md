@@ -15,6 +15,7 @@ where $r_{i}$ represents the x,y,z coordinates of each particle and $r_{k}$ the 
 to run the code, first import simulation functions, and initialize bulge positions and velocities manually [see "initial conditions to try" for sample initial conditions]. use MSG_disk to automatically create matching positions and velocities for bulges. the actual simulation calculations are performed by calling MSG_galaxy and specifying the number of timesteps to run. plot a singular timeframe using MSG_plot or animate the timesteps with celluloid or matplotlib animations [sample code provided below]
 ## running the code:
 ```python
+%matplotlib inline
 ### IMPORT STATEMENTS
 import numpy as np
 from MSGpy import MSG_galaxy
