@@ -94,7 +94,7 @@ def MSG_disk(number_of_rings, mass, rotation_dir, density, origin = ([[0.,0.,0.]
     PAR_PER_RING = particles_per_ring(number_of_rings, density)
     Np = int(sum(PAR_PER_RING)) # total number of particles
 
-    rand = random.randint(0, 4) # generate integer between 0 and 5 randomly
+    rand = random.randint(0, 5) # generate integer between 0 and 6 randomly
     if rand == 0:
         print('total number of particles: ', Np , '\n ﾐᐠዋ ﻌ ዋᐟﾐ') # tiger
     if rand == 1:
@@ -105,7 +105,9 @@ def MSG_disk(number_of_rings, mass, rotation_dir, density, origin = ([[0.,0.,0.]
         print('total number of particles: ', Np , '\n =^._.^=') # awesome cat
     if rand == 4:
         print('total number of particles: ', Np , '\n (๑ↀᆺↀ๑)') # cool cat
-
+    if rand == 5:
+        print('total number of particles: ', Np , '\n ∧,,,∧ \n( ̳•·• ̳)\n/    づ💻') # izzy's cat
+        
     # generate radii and velocities for each ring
     radii, velocities = init(number_of_rings, mass)
 
