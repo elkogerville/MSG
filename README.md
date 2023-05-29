@@ -36,7 +36,7 @@ a, b, c, d = MSG_galaxy(gal_pos = pos, gal_vel = vel, mass = mas, particle_pos =
 ### PLOT LAST TIMESTEP
 MSG_plot(gal_posA = a, gal_posB = b, par_posA = c, particle_Na = 597, step = 999,  par_posB = d, particle_Nb = 324, tails = True, elev = 45, azim = 90)
 ```
-include this line at the top of the cell for interactive jupyter notebook plots
+include this line at the top of the cell for interactive jupyter notebook plots [instead of %matplotlib inline]
 ```python
 %matplotlib notebook
 ```
@@ -59,6 +59,35 @@ com_p, com_v, M = MSG_disk(3, 1.0, -1, 6, [-15.0, 10.0, 0.0], [1.5, 0.0, 0.0]) #
 ``` 
 ### setting up disk inclination
 the MSG_rotate function will rotate a galaxy disk and bulge around the X, Y, or Z axis. specify the angle of rotation (theta) and provide the initial position and velocities of the bulge if galaxy is not centered at the origin and at rest
+<br>
+```
+MSG_rotate(gal_pos, gal_vel, par_pos, par_vel, velocities, theta, Xrot = None, Yrot = None, Zrot = None, 
+pos_shift = [0.,0.,0.], vel_shift = [0.,0.,0.])
+    --------------------------------------------------------------------------------------------
+    gal_pos [numpy array]: x, y, z bulge positions to be rotated
+    
+    gal_vel [numpy array]: x, y, z bulge velocities to be rotated
+    
+    par_pos [numpy array]: x, y, z disk positions to be rotated
+    
+    par_vel [numpy array]: x, y, z disk velocities to be rotated
+    
+    velocities [numpy array]: x, y, z velocities to be rotated
+    
+    theta [float]: angle of rotation in degrees
+    
+    Xrot, Yrot, Zrot [boolean]: by default set to None; set one to True to perform rotation about respective axis
+    
+    pos_shift [numpy array]: center of galaxy disk
+    ex: pos_shift = [0.,1.,1.]
+    
+    vel_shift [numpy array]: initial velocity for galaxy bulge
+    ex: vel_shift = [0.,0.,0.]
+    -------------------------------------------------------------------------------------------------------------
+    OUTPUT [numpy array]: rotated x, y, z positions and velocities
+    example: perform 90º rotation about X axis for disk centered at origin
+    bulge_pos, bulge_vel, disk_pos, disk_vel = MSG_rotate(pos, vel, disk_pos, disk_vel, 90, Xrot = True)
+```
 ```python
 # INITIAL CONDITIONS FOR UNROTATED GALAXY DISKS
 pos = np.array([[-15.0, 10.0, 0.0], [0.0, 0.0, 0.0]]) # bulge positions
@@ -66,7 +95,7 @@ vel = np.array([[1.5, 0.0, 0.0], [0.0, 0.0, 0.0]]) # bulge velocities
 mas = np.array([[1.0], [3.0]]) # bulge masses
 pos_p, vel_p, N = MSG_disk(7, 3, -1, 3) # primary disk
 com_p, com_v, M = MSG_disk(3, 1.0, -1, 6, [-15.0, 10.0, 0.0], [1.5, 0.0, 0.0]) # companion disk
-# ROTATE COMPANION DISK
+# ROTATE COMPANION DISK AROUND X AXIS
 pos[0], vel[0], com_p, com_v = MSG_rotate(pos[0], vel[0], com_p, com_v, -40, Xrot = True, 
                                           pos_shift = [-15.0, 10.0, 0.0], vel_shift = [1.5, 0.0, 0.0])
 ```
