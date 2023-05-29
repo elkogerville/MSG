@@ -18,12 +18,14 @@ def MSG_rotate(gal_pos, gal_vel, par_pos, par_vel, theta, Xrot = None, Yrot = No
     Xrot, Yrot, Zrot [boolean]: by default set to None; set one to True to perform rotation about respective axis
     
     pos_shift [numpy array]: center of galaxy disk
+    ex: pos_shift = [0.,1.,1.]
     
     vel_shift [numpy array]: initial velocity for galaxy bulge
+    ex: vel_shift = [0.,0.,0.]
     -------------------------------------------------------------------------------------------------------------
     OUTPUT [numpy array]: rotated x, y, z positions and velocities
-    example: perform 90º rotation about X axis
-    rotated_pos, rotated_vel = Rotation_Matrix(positions, 90, Xrot = True)
+    example: perform 90º rotation about X axis for disk centered at origin
+    bulge_pos, bulge_vel, disk_pos, disk_vel = MSG_rotate(pos, vel, disk_pos, disk_vel, 90, Xrot = True)
     """
     import numpy as np # computational
     radian = theta * (np.pi / 180)
