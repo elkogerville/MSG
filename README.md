@@ -132,10 +132,10 @@ camera = Camera(fig) # define celluloid camera
 
 # formatting
 plt.rcParams['font.family'] = 'sans-serif' # set font
-# set border color to white
-ax.xaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
-ax.yaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
-ax.zaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
+# set border color to black
+ax.xaxis.set_pane_color((0., 0., 0., 1.0))
+ax.yaxis.set_pane_color((0., 0., 0., 1.0))
+ax.zaxis.set_pane_color((0., 0., 0., 1.0))
 
 # set view angles
 ax.view_init(elev = elev, azim = azim)
@@ -187,10 +187,10 @@ ax = plt.axes(projection='3d')
 
 # formatting
 plt.rcParams['font.family'] = 'sans-serif' # set font
-# set border color to white
-ax.xaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
-ax.yaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
-ax.zaxis.set_pane_color((1.0, 1.0, 1.0, 1.0))
+# set border color to black
+ax.xaxis.set_pane_color((0., 0., 0., 1.0))
+ax.yaxis.set_pane_color((0., 0., 0., 1.0))
+ax.zaxis.set_pane_color((0., 0., 0., 1.0))
 
 # set view angles
 ax.view_init(elev = elev, azim = azim)
