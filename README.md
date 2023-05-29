@@ -57,7 +57,7 @@ mas = np.array([[1.0], [3.0]]) # bulge masses
 pos_p, vel_p, N = MSG_disk(7, 3, -1, 3) # primary disk
 com_p, com_v, M = MSG_disk(3, 1.0, -1, 6, [-15.0, 10.0, 0.0], [1.5, 0.0, 0.0]) # companion disk
 ``` 
-### setting up disk inclination
+## setting up disk inclination
 the MSG_rotate function will rotate a galaxy disk and bulge around the X, Y, or Z axis. specify the angle of rotation (theta) and provide the initial position and velocities of the bulge if galaxy is not centered at the origin and at rest
 <br>
 ```
@@ -88,6 +88,7 @@ pos_shift = [0.,0.,0.], vel_shift = [0.,0.,0.])
     example: perform 90º rotation about X axis for disk centered at origin
     bulge_pos, bulge_vel, disk_pos, disk_vel = MSG_rotate(pos, vel, disk_pos, disk_vel, 90, Xrot = True)
 ```
+#### -40º rotation about X axis sample code using "Z plane merger" initial conditions (see previous section):
 ```python
 # INITIAL CONDITIONS FOR UNROTATED GALAXY DISKS
 pos = np.array([[-15.0, 10.0, 0.0], [0.0, 0.0, 0.0]]) # bulge positions
@@ -96,7 +97,7 @@ mas = np.array([[1.0], [3.0]]) # bulge masses
 pos_p, vel_p, N = MSG_disk(7, 3, -1, 3) # primary disk
 com_p, com_v, M = MSG_disk(3, 1.0, -1, 6, [-15.0, 10.0, 0.0], [1.5, 0.0, 0.0]) # companion disk
 # ROTATE COMPANION DISK AROUND X AXIS
-pos[0], vel[0], com_p, com_v = MSG_rotate(pos[0], vel[0], com_p, com_v, -40, Xrot = True, 
+pos[0], vel[0], com_p, com_v = MSG_rotate(pos[0], vel[0], com_p, com_v, theta = -40, Xrot = True, 
                                           pos_shift = [-15.0, 10.0, 0.0], vel_shift = [1.5, 0.0, 0.0])
 ```
 
