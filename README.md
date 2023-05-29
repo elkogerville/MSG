@@ -91,14 +91,15 @@ pos_shift = [0.,0.,0.], vel_shift = [0.,0.,0.])
 #### -40º rotation about X axis sample code using "Z plane merger" initial conditions (see previous section):
 ```python
 # INITIAL CONDITIONS FOR UNROTATED GALAXY DISKS
-pos = np.array([[-15.0, 10.0, 0.0], [0.0, 0.0, 0.0]]) # bulge positions
-vel = np.array([[1.5, 0.0, 0.0], [0.0, 0.0, 0.0]]) # bulge velocities
-mas = np.array([[1.0], [3.0]]) # bulge masses
-pos_p, vel_p, N = MSG_disk(7, 3, -1, 3) # primary disk
-com_p, com_v, M = MSG_disk(3, 1.0, -1, 6, [-15.0, 10.0, 0.0], [1.5, 0.0, 0.0]) # companion disk
+pos = np.array([[4.0, 20.0, 10.0], [0.0, 0.0, 0.0]]) # bulge positions
+vel = np.array([[0.0, -1.0, -0.7], [0.0, 0.0, 0.0]]) # bulge velocities
+mas = np.array([[1.25], [4.0]]) # bulge masses
+pos_p, vel_p, N = MSG_disk(7, 4, -1, 3) # primary disk
+com_p, com_v, M = MSG_disk(3, 1.25, -1, 6, [4.0, 20.0, 10.0], [0.0, -1.0, -0.7]) # companion disk
+
 # ROTATE COMPANION DISK AROUND X AXIS
-pos[0], vel[0], com_p, com_v = MSG_rotate(pos[0], vel[0], com_p, com_v, theta = -40, Xrot = True, 
-                                          pos_shift = [-15.0, 10.0, 0.0], vel_shift = [1.5, 0.0, 0.0])
+pos[0], vel[0], com_p, com_v = MSG_rotate(pos[0], vel[0], com_p, com_v, -30, Xrot = True, 
+                                          pos_shift = [4.0, 20.0, 10.0], vel_shift = [0.0, -1.0, -0.7])
 ```
 
 ### setting up celluloid animations:
