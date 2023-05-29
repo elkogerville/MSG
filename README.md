@@ -220,8 +220,11 @@ ani3 = animation.ArtistAnimation(fig, p1, interval=5, blit=False)
 ani4 = animation.ArtistAnimation(fig, p2, interval=5, blit=False)
 plt.show()
 ```
-## Requirements
+## aditional comments
+this package provides an easy way to create galaxy merging simulations with minimal user effort. it is not recommended for scientific research as the stellar particles do not have mass (this is a restricted N-body simulation). The functions were designed to accept a large number of arguments and conditions and therefore have many optional arguments. use the help() function to read the docstrings which explain how to use each function.
+
+## requirements
 <br>numpy, matplotlib, random
 <br>OPTIONAL: celluloid, IPython.display
-## Acknowledgements
+## acknowledgements
 <br>Thank you to Professor Marla Geha and Will Cerny for their help. This project would have not been possible without them! =^._.^=
