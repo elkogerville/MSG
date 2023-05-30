@@ -18,9 +18,7 @@ to run the code, first import simulation functions, and initialize bulge positio
 %matplotlib inline
 ### IMPORT STATEMENTS
 import numpy as np
-from MSGpy import MSG_galaxy
-from MSGpy import MSG_disk
-from MSGpy import MSG_plot
+from MSGpy import *
 ### INITIAL CONDITIONS 
 pos = np.array([[-12.5, 13.0, 0.0], [0.0, 0.0, 0.0]]) # companion and primary galaxy positions
 vel = np.array([[1.5, -1.0, 0.0], [0.0, 0.0, 0.0]]) # respective velocities 
