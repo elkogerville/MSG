@@ -60,7 +60,7 @@ the MSG_rotate function will rotate a galaxy disk and bulge around the X, Y, or 
 <br>
 ```
 MSG_rotate(gal_pos, gal_vel, par_pos, par_vel, velocities, theta, Xrot = None, Yrot = None, Zrot = None, 
-pos_shift = [0.,0.,0.], vel_shift = [0.,0.,0.])
+shift = [0.,0.,0.])
     --------------------------------------------------------------------------------------------
     gal_pos [numpy array]: x, y, z bulge positions to be rotated
     
@@ -76,11 +76,9 @@ pos_shift = [0.,0.,0.], vel_shift = [0.,0.,0.])
     
     Xrot, Yrot, Zrot [boolean]: by default set to None; set one to True to perform rotation about respective axis
     
-    pos_shift [numpy array]: center of galaxy disk
-    ex: pos_shift = [0.,1.,1.]
-    
-    vel_shift [numpy array]: initial velocity for galaxy bulge
-    ex: vel_shift = [0.,0.,0.]
+    shift [numpy array]: center of galaxy disk
+    ex: shift = [0.,1.,1.]
+
     -------------------------------------------------------------------------------------------------------------
     OUTPUT [numpy array]: rotated x, y, z positions and velocities
     example: perform 90º rotation about X axis for disk centered at origin
@@ -97,7 +95,7 @@ com_p, com_v, M = MSG_disk(3, 1.25, -1, 6, [4.0, 20.0, 10.0], [0.0, -1.0, -0.7])
 
 # ROTATE COMPANION DISK AROUND X AXIS
 pos[0], vel[0], com_p, com_v = MSG_rotate(pos[0], vel[0], com_p, com_v, -30, Xrot = True, 
-                                          pos_shift = [4.0, 20.0, 10.0], vel_shift = [0.0, -1.0, -0.7])
+                                          shift = [4.0, 20.0, 10.0])
 ```
 
 ### setting up celluloid animations:
