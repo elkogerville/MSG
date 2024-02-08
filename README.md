@@ -1,7 +1,10 @@
 # Merging Simulator for Galaxies [MSG]
 
 ![My Image](ANIMATIONS/title.png)
-<br>
+
+<div align="justify"> 
+
+
 ## abstract:
 This python code simulates the motion of massless test particles (galactic disk) through a gravitational potential field created by 2 central bulge particles. This restricted N-Body simulation is modeled after the Toomre and Toomre 1972 simulations and allows for 3D visualization of galaxy mergers.
 <br>
@@ -225,3 +228,5 @@ this package provides an easy way to create galaxy merging simulations with mini
 <br>OPTIONAL: celluloid, IPython.display
 ## acknowledgements
 <br>Thank you to Professor Marla Geha and Will Cerny for their help. This project would have not been possible without them! =^._.^=
+
+</div>
