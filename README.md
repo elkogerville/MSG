@@ -1,6 +1,6 @@
 # Merging Simulator for Galaxies [MSG]
 
-![My Image](ANIMATIONS/title.png)
+![My Image](ANIMATIONS/title2.png)
 
 <div align="justify"> 
 
